@@ -32,6 +32,33 @@ async def greeting(event):
     
     await event.respond('السورس يعمل بنجاح')
 
+@mb.on(events.NewMessage(outgoing=True, pattern=r".update"))
+async def update(event):
+    try:
+        # clone the repository
+        
+        USERBOT_NAME = "updater" 
+        subprocess.check_output(f"git clone https://github.com/I6I6I/usermebot.git {USERBOT_NAME}", shell=True)
+
+        # switch to the cloned directory
+        os.chdir(USERBOT_NAME)
+
+        # fetch the changes from the repository
+        subprocess.check_output("git fetch --all", shell=True)
+        subprocess.check_output("git reset --hard origin/main", shell=True)
+
+        # update the requirements
+        subprocess.check_output("pip install -r requirements.txt --upgrade", shell=True)
+
+        # restart the userbot
+        subprocess.check_output("heroku ps:scale worker=0", shell=True)
+        subprocess.check_output("heroku ps:scale worker=1", shell=True)
+
+        # reply with a success message
+        await event.edit("تم تحديث الـ userbot بنجاح")
+    except Exception as e:
+        # reply with an error message
+        await event.edit(f"حدث خطأ أثناء تحديث الـ userbot: {str(e)}")
 
 collects = []
 
