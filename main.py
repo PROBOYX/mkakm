@@ -38,7 +38,7 @@ async def update(event):
         # clone the repository
         
         USERBOT_NAME = "updater" 
-        subprocess.check_output(f"git clone https://github.com/MkAkm/mkakm.git {USERBOT_NAME}", shell=True)
+        subprocess.check_output(f"git clone https://github.com/MkAkm/mkakm {USERBOT_NAME}", shell=True)
 
         # switch to the cloned directory
         os.chdir(USERBOT_NAME)
