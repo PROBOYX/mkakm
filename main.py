@@ -1,4 +1,5 @@
 import subprocess
+import git
 import os
 import base64
 import logging
@@ -33,19 +34,19 @@ async def greeting(event):
     await event.respond('السورس يعمل بنجاح')
 
 @mb.on(events.NewMessage(outgoing=True, pattern=r".update"))
+async@events.register(events.NewMessage(outgoing=True, pattern=r".update"))
 async def update(event):
     try:
         # clone the repository
-        
-        USERBOT_NAME = "updater" 
-        subprocess.check_output(f"git clone https://github.com/MkAkm/mkakm {USERBOT_NAME}", shell=True)
+        USERBOT_NAME = "updater"
+        git.Repo.clone_from("https://github.com/MkAkm/mkakm.git", USERBOT_NAME)
 
         # switch to the cloned directory
         os.chdir(USERBOT_NAME)
 
         # fetch the changes from the repository
-        subprocess.check_output("git fetch --all", shell=True)
-        subprocess.check_output("git reset --hard origin/main", shell=True)
+        git.cmd.Git(".").fetch("--all")
+        git.cmd.Git(".").reset("--hard", "origin/main")
 
         # update the requirements
         subprocess.check_output("pip install -r requirements.txt --upgrade", shell=True)
