@@ -82,7 +82,7 @@ async def CollectPoints(event):
             
                 # START COLLECTING
                 collect = await Collect_t06bot(event, bot_username)
-        await asyncio.sleep(3600)
+        await asyncio.sleep(7200)
 
 # CHECK BOTs
 async def CheckStart(event, username):
