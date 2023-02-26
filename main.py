@@ -56,17 +56,17 @@ async def CollectPoints(event):
             break
         else:    
             reply = await event.reply(f'جاري التحقق')
-            await event.client.send_message('@t06bot', '/start')
+            await event.client.send_message(bot_username, '/start')
             await asyncio.sleep(30)
-            await event.client.send_message('@t06bot', '/start')
+            await event.client.send_message(bot_username, '/start')
             await asyncio.sleep(30)
-            await event.client.send_message('@t06bot', '/start')
+            await event.client.send_message(bot_username, '/start')
             await asyncio.sleep(30)
-            await event.client.send_message('@t06bot', '/start')
+            await event.client.send_message(bot_username, '/start')
             await asyncio.sleep(30)
-            await event.client.send_message('@t06bot', '/start')
+            await event.client.send_message(bot_username, '/start')
             await asyncio.sleep(30)
-            await event.client.send_message('@t06bot', '/start')
+            await event.client.send_message(bot_username, '/start')
     
             bot = await event.client.get_entity(bot_username)
             if bot.id not in collects:
