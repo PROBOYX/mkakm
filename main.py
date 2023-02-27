@@ -29,8 +29,19 @@ mb.start()
 
 @mb.on(events.NewMessage(outgoing=True, pattern='.check'))
 async def greeting(event):
-    
     await event.respond("The Source Is Working")
+    
+
+@mb.on(events.NewMessage(outgoing=True, pattern='.update'))
+async def restart(event):
+    await event.edit("**UPDATING BOT...\nPʟᴇᴀsᴇ ᴡᴀɪᴛ**")
+    await asyncio.sleep(2)
+    await event.edit("**Rᴇsᴛᴀʀᴛɪɴɢ ᴛʜᴇ Hᴇʀᴏᴋᴜ Cᴏɴɴᴇᴄᴛɪᴏɴ.....**")
+    await asyncio.sleep(1)
+    await event.edit("**Rᴇsᴛᴀʀᴛᴇᴅ ʏᴏᴜʀ ʙᴏᴛ sᴜᴄᴄᴇssғᴜʟʟʏ**\n✅✅")
+    os.execl(sys.executable, sys.executable, *sys.argv)
+    quit ()
+ 
 
 
 #welcome LEGENDX
