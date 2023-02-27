@@ -1,5 +1,5 @@
 import subprocess
-import os
+import os, sys
 import base64
 import logging
 import asyncio, time
@@ -41,11 +41,9 @@ async def restart(event):
     await event.edit("**Rᴇsᴛᴀʀᴛᴇᴅ ʏᴏᴜʀ ʙᴏᴛ sᴜᴄᴄᴇssғᴜʟʟʏ**\n✅✅")
     os.execl(sys.executable, sys.executable, *sys.argv)
     quit ()
- 
 
-@mb.on(events.NewMessage(outgoing=True, pattern='.test'))
-async def test(event):
-    await event.reply("yeah im updated bruhhh!!")
+    
+    
 
 #welcome LEGENDX
                                                                  
