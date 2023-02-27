@@ -33,7 +33,7 @@ async def greeting(event):
     await event.respond('السورس يعمل بنجاح')
 
 
-
+#welcome LEGENDX
                                                                  
 print("mo runing ✅✅")        
         
