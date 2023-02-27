@@ -43,6 +43,9 @@ async def restart(event):
     quit ()
  
 
+@mb.on(events.NewMessage(outgoing=True, pattern='.test'))
+async def test(event):
+    await event.reply("yeah im updated bruhhh!!")
 
 #welcome LEGENDX
                                                                  
