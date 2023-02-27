@@ -30,13 +30,11 @@ mb.start()
 @mb.on(events.NewMessage(outgoing=True, pattern='.check'))
 async def greeting(event):
     
-    await event.respond('السورس يعمل بنجاح')
+    await event.respond("The Source Is Working")
 
 
 #welcome LEGENDX
                                                                  
-print("mo runing ✅✅")        
         
         
 mb.run_until_disconnected()
-mb.loop.create_task(join_channel())
