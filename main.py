@@ -1,5 +1,5 @@
 import subprocess
-import os
+import os, sys
 import base64
 import logging
 import asyncio, time
